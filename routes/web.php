@@ -42,6 +42,8 @@ Route::post('/send', 'EmailController@send');
 
 Route::resource('bookings','BookingController');
 
+Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('user/profile',[
 

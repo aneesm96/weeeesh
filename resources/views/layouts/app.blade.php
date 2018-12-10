@@ -14,6 +14,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
+    <link href="{{ asset('css/searchbar.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/grid.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/friendship.css') }}" rel="stylesheet">
+
+
 
     <!-- https://fontawesome.com/get-started -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -35,22 +40,17 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/home') }}">
-                        <!--{{ config('app.name', 'Weeesh') }} -->
-                            <i class="fas fa-home"></i>
-                    </a>
+                    
 
                     {{ Form::open(['method'=>'GET','url'=>'user_profiles','class'=>'navbar-form navbar-left','role'=>'search'])  }}
 
-
-                    <div class="input-group custom-search-form">
-                        <input type="text" class="form-control" name="search" placeholder="Search...">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default-sm" type="submit">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
-                    </div>
+                     <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input class="search_input" type="text" name="" placeholder="Search...">
+          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+                  
 
                         {{ Form::close() }}
 
@@ -72,8 +72,9 @@
                                 <li><a href="{{ url('/friendships') }}">{{ __('My Friends') }}</a></li>
 
                             <li class="dropdown">
-                                {{--<img src="{{ asset($user->profile->avatar) }}" width="60px"  height="60px" style="border-radius: 50%" >--}}
+                                
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                                    <img src="{{ asset('images/user.png') }}" width="30px"  height="30px" style="border-radius: 30%" >
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 

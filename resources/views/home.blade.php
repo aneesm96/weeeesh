@@ -96,7 +96,7 @@
                         <li class="list-group-item">
                             <a href="{{route('user.profile')}}" >My Profile</a>
                         </li>
-                        <img src="{{ asset($user->profile->avatar) }}" width="60px"  height="60px" style="border-radius: 50%" >
+                        {{--<img src="{{ asset($user->profile->avatar) }}" width="60px"  height="60px" style="border-radius: 50%" >--}}
                         <!-- @TODO: mostrare elenco degli ultimi regali inseriti -->
                         <div class="panel-group">
 
@@ -171,4 +171,56 @@
 
     </div>
 </div>
+<div class="masonry">
+  <div class="item">
+    1
+    <img src="{{ asset('images/avatar.jpg') }}">
+  </div>
+  <div class="item">
+    2
+    <img src="http://www.graphicsfuel.com/wp-content/uploads/2015/11/branding-mockup-psd.jpg">
+  </div>
+  <div class="item">
+    3
+    <img src="http://www.pixeden.com/media/k2/galleries/511/001-business-card-mockup-vol-22-box-brand-psd.jpg">
+  </div>
+ 
+  <div class="item">
+    5
+    <img src="https://blog.spoongraphics.co.uk/wp-content/uploads/2013/mockup/23.jpg">
+  </div>
+  <div class="item">
+    6
+    <img src="{{ asset('images/avatar.jpg') }}">
+  </div>
+  <div class="item">
+    7
+    <img src="http://www.pixeden.com/media/k2/galleries/754/001-businesscard-mockup-presentation-psd-free-resource.jpg">
+  </div>
+  <div class="item">
+    8
+    <img src="http://designdecoding.com/wp-content/uploads/2014/09/001-a4-paper-brand-stationery-isometric-print-mock-up-psd-1.jpg">
+  </div>
+  <div class="item">
+    9
+    <img src="http://www.blugraphic.com/wp-content/uploads/2014/04/Folded-Page-Mockup1.jpg">
+  </div>
+  <div class="item">
+    10
+    <img src="http://cdn.designinstruct.com/files/542-free-branding-identity-mockups/29-branding-identity-mock-up-vol-8-full.jpg">
+  </div>
+  <div class="item">
+    11
+    <img src="{{ asset('images/avatar.jpg') }}">
+  </div>
+    <div class="item">
+    12
+    <img src="http://www.pixeden.com/media/k2/galleries/640/001-business-card-cardboard-mockup-presentation-wall-free-psd.jpg">
+  </div>
+
+  
+
+
+</div>
+
 @endsection

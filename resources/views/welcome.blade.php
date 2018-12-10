@@ -1,99 +1,67 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.formLayout')
 
-        <title>@lang("Weeesh - The Perfect Present")</title>
+@section('content')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <div class="flex-center position-ref full-height">
+        <div class="main">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+            <section class="signup">
+                <!-- <img src="images/signup-bg.jpg" alt=""> -->
+                <div class="container">
+                    <div class="signup-content">
+                        <form method="POST" action="{{ route('register') }}" id="signup-form" class="signup-form">
+                            {{ csrf_field() }}
+                            <h2 class="form-title">Create account</h2>
+                            <div class="form-group">
+                                <input type="text" class="form-input{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" id="name" placeholder="Your Name" value="{{ old('name') }}" required autofocus />
+                                @if ($errors->has('name'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-input{{ $errors->has('surname') ? ' is-invalid' : '' }}" name="surname" id="surname" placeholder="Your SurName" value="{{ old('surname') }}" required autofocus />
+                                @if ($errors->has('surname'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('surname') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-input{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" id="email" value="{{ old('email') }}" required placeholder="Your Email"/>
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-input{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" id="password" placeholder="Password" required/>
+                                <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-input"  id="password-confirm" name="password_confirmation" required placeholder="Repeat your password"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" id="submit" class="form-submit" value=@lang("Insert List")/>
+                            </div>
+                        </form>
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 46px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">{{ __('Home') }}</a>
-                    @else
-                        <a href="{{ route('login') }}">{{ __('Login') }}</a>
-                        <a href="{{ route('register') }}">{{ __('Register') }}</a>
-                    @endauth
+                        <p class="loginhere">
+                            Have already an account ? <a href="{{ route('login') }}">Login here</a>
+                        </p>
+                    </div>
                 </div>
-            @endif
+            </section>
 
-            <div class="content">
-                <div class="title m-b-md">
-                    {{ __('Weeesh - The Perfect Present') }}
-                </div>
-
-
-                <div class="links">
-                 @auth
-                    <a href="{{ url('/wlists') }}">{{ __('My Lists') }}</a>
-                    <a href="{{ url('/wlists/create') }}">{{ __('New List') }}</a>
-                    <a href="{{ url('/friendships') }}">{{ __('My Friends') }}</a>
-                 @else
-                    <a href="{{ route('login') }}">{{ __('Login') }}</a>
-                    <a href="{{ route('register') }}">{{ __('Register') }}</a>
-                 @endauth
-                </div>
-            </div>
         </div>
-    </body>
-</html>
+
+    </div>
+
+@endsection

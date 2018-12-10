@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.default')
 
 @section('content')
 
@@ -31,7 +31,7 @@
               <div class="col-md-4"></div>
               <div class="form-group col-md-4">
                   <label for="name">@lang("Name"):</label>
-                  <input type="text" class="form-control" name="object">
+                  <input type="text" class="form-input" name="object">
               </div>
           </div>
 
@@ -39,15 +39,22 @@
               <div class="col-md-4"></div>
               <div class="form-group col-md-4">
                   <label for="link_web">@lang("Link"):</label>
-                  <input type="text" class="form-control" name="link_web">
+                  <input type="text" class="form-input" name="link_web">
               </div>
           </div>
+          <div class="row">
+          <div class="col-md-4"></div>
+          <div class="form-group col-md-4">
+            <label for="image">@lang("Image"):</label>
+            <input type="file" class="form-input" name="image" value="{{old('image')}}">
+          </div>
+        </div>
           <?php $listPrivacies = \Weeesh\ListPrivacy::pluck('name', 'id_list_privacy')->toArray() ?>
           <div class="row">
               <div class="col-md-4"></div>
               <div class="form-group col-md-4">
                   <label for="name">@lang("Privacy"):</label>
-                  {!! Form::select('id_list_privacy', $listPrivacies, null, ['class' => 'form-control']) !!}
+                  {!! Form::select('id_list_privacy', $listPrivacies, null, ['class' => 'form-input']) !!}
               </div>
           </div>
         <div class="row">

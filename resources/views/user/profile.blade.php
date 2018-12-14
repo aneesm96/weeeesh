@@ -1,22 +1,28 @@
-@extends('layouts.app')
+@extends('layouts.list')
 
 @section('content')
 
-
-    <div class="panel panel-default">
-
-        <div class="panel-heading">
-            Edit your profile
+<section class="profile">
+    <div class="new">
+        <div class="profile-content">
+    
+ 
+<img src="{{ asset($user->profile->avatar) }}" style="width:150px; height:150px; float:left; border-radius: 50%; margin-left: 205px; " >
+    <h2 style="margin-top: 180px;">{{ $user->name }}'s Profile</h2>
+                
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
         </div>
+    </div>
 
-        <div class="panel-body">
+        
             <form action="{{route('profile.store',['id' => $user->id ])}}" method="post" enctype="multipart/form-data" >
                 {{csrf_field()}}
                 <div class="form-group">
 
                     <label for="name" > User Name</label>
 
-                    <input type="text"  name="name" class="form-control" value="{{$user->name}}">
+                    <input type="text"  name="name" class="form-input" value="{{$user->name}}">
 
                 </div>
 
@@ -24,7 +30,7 @@
 
                     <label for="email" >Email</label>
 
-                    <input type="email"  readonly name="email" class="form-control" value="{{$user->email}}">
+                    <input type="email"  readonly name="email" class="form-input" value="{{$user->email}}">
 
                 </div>
 
@@ -32,21 +38,17 @@
 
                     <label for="avatar" >Upload new avatar</label>
 
-                    <input type="file"  name="avatar" class="form-control" >
+                    <input type="file"  name="avatar" class="form-input" >
 
                 </div>
-
-
-
-                <div class="form-group">
-                    <div class="text-center">
-
-                        <button class="btn btn-success" type="submit"> Update Profile</button>
-                    </div>
-
-                </div>
+                   <div class="form-group">
+          <input type="submit" name="submit" id="submit" class="form-submit" value="Update Profile">
+        </div>
 
             </form>
         </div>
     </div>
+    </div>
+    </div>
+    </section>
 @stop

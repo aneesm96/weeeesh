@@ -49,8 +49,9 @@ class FriendshipController extends Controller
             ->get();
 
 
-
-        return view('friendship.index', compact('friendships'));
+ $user =  Auth::user();
+        
+        return view('friendship.index', compact('friendships'),compact('user'));
     }
 
     /**

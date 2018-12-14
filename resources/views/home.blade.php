@@ -92,10 +92,6 @@
                             </table>
 
                         @endif
-
-                        <li class="list-group-item">
-                            <a href="{{route('user.profile')}}" >My Profile</a>
-                        </li>
                         {{--<img src="{{ asset($user->profile->avatar) }}" width="60px"  height="60px" style="border-radius: 50%" >--}}
                         <!-- @TODO: mostrare elenco degli ultimi regali inseriti -->
                         <div class="panel-group">

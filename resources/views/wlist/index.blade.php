@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.list')
 
 @section('content')
 
@@ -25,22 +25,19 @@
     </div>
 
 
-    <table class="table table-striped responsive">
+   
 
-        @foreach($wlists as $wlistKey => $wlistValue)
-            <tr>
+<section class="our-webcoderskull padding-lg">
+  <div class="container">
+    <ul class="row" >
+      @foreach($wlists as $wlistKey => $wlistValue)
+      <li class="col-12 col-md-6 col-lg-3" >
+          <div class="cnt-block equal-hight" style="height: 380px;">
+            <figure><img src="http://www.webcoderskull.com/img/team4.png" class="img-responsive" alt=""></figure>
+            <h3><a href="{{action('WListController@show', $wlistValue->id_list)}}" >{{ $wlistValue->name }}</a>
 
-                <td>
-                    <a href="{{action('WListController@show', $wlistValue->id_list)}}">{{ $wlistValue->name }}</a>
-                </td>
-                <td>{{  $wlistValue->list_privacy() }}</td>
-
-
-                <td>
-
-
-
-
+            <p>{{  $wlistValue->list_privacy() }}
+            
                                 <form action="{{action('WListController@destroy', $wlistValue->id_list)}}"
                                       method="post" class="delete">
                                     <div class="btn btn-group">
@@ -64,67 +61,16 @@
                                     @endif
                                     </div>
                                 </form>
-
-
-
-
-            </tr>
-        @endforeach
-
-    </table>
-</div>
-<section class="our-webcoderskull padding-lg">
-  <div class="container">
-    <ul class="row">
-      <li class="col-12 col-md-6 col-lg-3">
-          <div class="cnt-block equal-hight" style="height: 349px;">
-            <figure><img src="http://www.webcoderskull.com/img/team4.png" class="img-responsive" alt=""></figure>
-            <h3><a href="http://www.webcoderskull.com/">Guptam Holla</a></h3>
-            <p>Hofstra University School of Law Hempstead, New York</p>
-            <ul class="follow-us clearfix">
-              <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-            </ul>
+                              </p>
+           </h3>
           </div>
       </li>
-      <li class="col-12 col-md-6 col-lg-3">
-          <div class="cnt-block equal-hight" style="height: 349px;">
-            <figure><img src="http://www.webcoderskull.com/img/team1.png" class="img-responsive" alt=""></figure>
-            <h3><a href="#">Kappua Billa</a></h3>
-            <p>Hofstra University School of Law Hempstead, New York</p>
-            <ul class="follow-us clearfix">
-              <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
-      </li>
-      <li class="col-12 col-md-6 col-lg-3">
-          <div class="cnt-block equal-hight" style="height: 349px;">
-            <figure><img src="http://www.webcoderskull.com/img/team4.png" class="img-responsive" alt=""></figure>
-            <h3><a href="http://www.webcoderskull.com/">Omin Goshu</a></h3>
-            <p>Hofstra University School of Law Hempstead, New York</p>
-            <ul class="follow-us clearfix">
-              <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
-       </li>
-      <li class="col-12 col-md-6 col-lg-3">
-          <div class="cnt-block equal-hight" style="height: 349px;">
-            <figure><img src="http://www.webcoderskull.com/img/team2.png" class="img-responsive" alt=""></figure>
-            <h3><a href="http://www.webcoderskull.com/">NArman Bandhu</a></h3>
-            <p>Hofstra University School of Law Hempstead, New York</p>
-            <ul class="follow-us clearfix">
-              <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
-      </li>
+       @endforeach
+      
     </ul>
   </div>
+  </div>
 </section>
+
+
 @endsection

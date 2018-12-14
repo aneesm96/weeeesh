@@ -24,13 +24,12 @@ h2 {
 }
 .clear { clear: both; }
 body {
+    background-color: #B9B9B7;
 	font-size: 14px;
     line-height: 1.8;
     color: $black-color;
     font-weight: 400;
     font-family: 'Montserrat';
-    background-image: url('../images/signup-bg.jpg');
-    background-repeat: no-repeat;
     @include background-size(cover);
     background-position: center center;
     padding: 0px 0;

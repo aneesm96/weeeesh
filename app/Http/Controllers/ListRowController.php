@@ -33,7 +33,8 @@ class ListRowController extends Controller
         //@TODO: inserire il controllo se sono il proprietario della lista anche in altri metodi
 
         $wlist = WList::findOrFail($id_list);
-        return view('list_row.create')->with('wlist', $wlist);
+        $user =  Auth::user();
+        return view('list_row.create',compact('user'))->with('wlist', $wlist);
 
     }
 
@@ -90,7 +91,8 @@ class ListRowController extends Controller
         $list_row = ListRow::findOrFail($id_list_row);
         if ($user->owns($list_row->id_list))
         {
-            return view('list_row.edit')->with('list_row', $list_row);
+        $user =  Auth::user();
+            return view('list_row.edit',compact('user'))->with('list_row', $list_row);
 
         } else {
             return \Redirect::route('wlists.index')

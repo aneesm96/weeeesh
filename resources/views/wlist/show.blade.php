@@ -20,7 +20,7 @@
         @endif
 
 
-    <a href="{{ URL::route('wlists.index') }}">@lang("My Lists")</a> ><h1> {{ $wlist->name }}</h1>
+    <h1> {{ $wlist->name }}</h1>
 
     <p>
         @lang("Created on"): {{ date('F d, Y', strtotime($wlist->created_at)) }} <br />
@@ -30,9 +30,7 @@
 
     <h2>@lang("Objects")</h2>
 
-    <p>
-        <a href="{{ URL::route('wlists.list_rows.create', $wlist->id_list) }}" class='btn btn-primary'>@lang("Add an object")</a>
-    </p>
+    
 
     @if($wlist->list_rows->count() == 0)
 
@@ -97,4 +95,7 @@
         </div>
         @endif
     </div>
+    <p>
+        <a href="{{ URL::route('wlists.list_rows.create', $wlist->id_list) }}" class='btn btn-primary'>@lang("Add an object")</a>
+    </p>
 @endsection

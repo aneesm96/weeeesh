@@ -1,13 +1,14 @@
-@extends('layouts.default')
+@extends('layouts.list')
 
 @section('content')
 
-<!-- create.blade.php -->
-<!-- https://appdividend.com/2017/08/20/laravel-5-5-tutorial-example/#Step_3_Create_a_model_as_well_as_migration_file_for_our_Products_table -->
-    <div class="container">
 
-        <a href="{{action('WListController@show', $wlist->id_list)}}"><b>{{ $wlist->name }}</b></a>
-        <br>@lang("Insert new Object in list:")
+    <section class="profile">
+      <div class="new">
+        <div class="profile-content">
+        <h2>
+        <a href="{{action('WListController@show', $wlist->id_list)}}"><b><h4>{{ $wlist->name }}</h4></b></a>
+        @lang("Insert new Object in list:")</h2>
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -57,13 +58,14 @@
                   {!! Form::select('id_list_privacy', $listPrivacies, null, ['class' => 'form-input']) !!}
               </div>
           </div>
-        <div class="row">
-          <div class="col-md-4"></div>
-          <div class="form-group col-md-4">
-            <button type="submit" class="btn btn-success" style="margin-left:38px">@lang("Insert Object")</button>
-          </div>
+        
+        
+          <div class="form-group">
+          <input type="submit" name="submit" id="submit" class="form-submit" value=@lang("Insert Object")/>
         </div>
         <input type="hidden" name="id_list" value="{{$wlist->id_list}}"/>
         {{ Form::close() }}
-    </div>
+  </div>
+</div>
+    </section>
 @endsection

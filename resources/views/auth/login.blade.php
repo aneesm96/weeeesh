@@ -5,7 +5,7 @@
 
         <section class="signup">
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
-            <div class="container">
+            <div class="new">
                 <div class="signup-content">
                     <form method="POST" action="{{ route('login') }}" id="signup-form" class="signup-form">
                         {{ csrf_field() }}

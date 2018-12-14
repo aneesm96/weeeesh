@@ -29,8 +29,10 @@ class WListController extends Controller
             ->value('id_user_profile');
 
         $wlists = WList::all()->where('id_user_profile_creator',$id_user_profile_creator);
-
-        return view('wlist.index', compact('wlists'));
+        
+        $user =  Auth::user();
+        
+        return view('wlist.index', compact('wlists'),compact('user'));
     }
 
     /**
@@ -40,8 +42,8 @@ class WListController extends Controller
      */
     public function create()
     {
-        //
-        return view('wlist.create');
+         $user =  Auth::user();
+        return view('wlist.create',compact('user'));
     }
 
     /**
@@ -91,7 +93,8 @@ class WListController extends Controller
     {
         //
         $wlist = WList::find($id_list);
-        return view('wlist.show',compact('wlist','id_list'));
+        $user =  Auth::user();
+        return view('wlist.show',compact('wlist','id_list'),compact('user'));
 
     }
 
@@ -107,7 +110,8 @@ class WListController extends Controller
         //
         $wlist = WList::find($id_list);
         $userProfile = UserProfile::find($id_user_profile);
-        return view('wlist.friendShow',compact('wlist','id_list','userProfile','id_user_profile'));
+        $user =  Auth::user();
+        return view('wlist.friendShow',compact('wlist','id_list','userProfile','id_user_profile'),compact('user'));
 
     }
 
@@ -121,7 +125,9 @@ class WListController extends Controller
     {
         //
         $wlist = WList::find($id_list);
-        return view('wlist.edit',compact('wlist','id_list'));
+        $user =  Auth::user();
+
+        return view('wlist.edit',compact('wlist','id_list'),compact('user'));
 
     }
 
@@ -135,7 +141,9 @@ class WListController extends Controller
     {
         //vedi funzionamento edit
         $wlist = WList::find($id_list);
-        return view('list_row.create',compact('wlist','id_list') );
+        $user =  Auth::user();
+
+        return view('list_row.create',compact('wlist','id_list'),compact('user') );
     }
 
 

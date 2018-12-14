@@ -1,10 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.list')
 
 @section('content')
-<div class="container">
+<section class="profile">
+      <div class="new">
+        <div class="profile-content">
     <h2>@lang("Edit an Object in list:")
         <a href="{{action('WListController@show', $list_row->id_list)}}"><b>{{ $list_row->wlist->name }}</b></a>
-    </h2><br  />
+    </h2>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -29,7 +31,7 @@
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
                 <label for="object">@lang("Name"):</label>
-                <input type="text" class="form-control" name="object" value="{{$list_row->object}}">
+                <input type="text" class="form-input" name="object" value="{{$list_row->object}}">
             </div>
         </div>
 
@@ -37,7 +39,7 @@
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
                 <label for="link_web">@lang("Link"):</label>
-                <input type="text" class="form-control" name="link_web" value="{{$list_row->link_web}}">
+                <input type="text" class="form-input" name="link_web" value="{{$list_row->link_web}}">
             </div>
         </div>
 
@@ -49,16 +51,17 @@
             <div class="form-group col-md-4">
                 <label for="name">@lang("Privacy"):</label>
                 {!! Form::select('id_list_privacy',
-                    $listPrivacies, $list_row->id_list_privacy, ['class' => 'form-control']) !!}
+                    $listPrivacies, $list_row->id_list_privacy, ['class' => 'form-input']) !!}
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-                <button type="submit" class="btn btn-success" style="margin-left:38px">@lang("Update Object")</button>
-            </div>
+        <div class="form-group">
+          <input type="submit" name="submit" id="submit" class="form-submit" value=@lang("Update Object")/>
         </div>
+          
     </form>
 </div>
+</div>
+</section>
+
 @endsection

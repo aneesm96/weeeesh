@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.list')
 @section('content')
 <!-- create.blade.php -->
 <!-- https://appdividend.com/2017/08/20/laravel-5-5-tutorial-example/#Step_3_Create_a_model_as_well_as_migration_file_for_our_Products_table -->
@@ -21,7 +21,7 @@
 </div>
 <section class="signup">
   <!-- <img src="images/signup-bg.jpg" alt=""> -->
-  <div class="container">
+  <div class="new">
     <div class="signup-content">
       <form method="post" action="{{url('wlists')}}" enctype="multipart/form-data">
         {{csrf_field()}}

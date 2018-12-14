@@ -1,8 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.list')
 
 @section('content')
-<div class="container">
-    <h2>@lang("Edit A List")</h2><br  />
+<section class="signup">
+      <div class="new">
+    <div class="signup-content">
+
+    <h2>@lang("Edit A List")</h2><br/>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -17,14 +20,19 @@
             <p>{{ \Session::get('success') }}</p>
         </div><br />
     @endif
-    <form method="post" action="{{action('WListController@update', $id_list)}}">
+  
+
+
+  <!-- <img src="images/signup-bg.jpg" alt=""> -->
+
+       <form method="post" action="{{action('WListController@update', $id_list)}}">
         {{csrf_field()}}
         <input name="_method" type="hidden" value="PATCH">
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
                 <label for="name">@lang("Name"):</label>
-                <input type="text" class="form-control" name="name" value="{{$wlist->name}}">
+                <input type="text" class="form-input" name="name" value="{{$wlist->name}}">
             </div>
         </div>
 
@@ -35,16 +43,18 @@
             <div class="form-group col-md-4">
                 <label for="name">@lang("Privacy"):</label>
                 {!! Form::select('id_list_privacy',
-                    $listPrivacies, $wlist->id_list_privacy, ['class' => 'form-control']) !!}
+                    $listPrivacies, $wlist->id_list_privacy, ['class' => 'form-input']) !!}
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-                <button type="submit" class="btn btn-success" style="margin-left:38px">@lang("Update List")</button>
-            </div>
+        
+             <div class="form-group">
+          <input type="submit" name="submit" id="submit" class="form-submit" value=@lang("Update List")/>
         </div>
+        
     </form>
+    
+  </div>
 </div>
+</section>
 @endsection

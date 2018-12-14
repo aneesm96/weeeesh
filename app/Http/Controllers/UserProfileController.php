@@ -14,6 +14,7 @@ use Weeesh\UserProfile;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 
 class UserProfileController extends Controller
@@ -40,8 +41,10 @@ class UserProfileController extends Controller
                 ->paginate(20);
 
             //$user_profiles = UserProfile::search()->orderBy('name')->paginate(20);
+                $user =  Auth::user();
 
-            return view('user_profile.index', compact('user_profiles'))->withuser($user_profile);
+        
+            return view('user_profile.index',compact('user'), compact('user_profiles'))->withuser($user_profile);
         }else {
             // The user is NOT logged in
             return view("/welcome");
@@ -60,7 +63,8 @@ class UserProfileController extends Controller
     {
         //
         $wlist = WList::find($id_list);
-        return view('wlist.show',compact('wlist','id_list'));
+        $user =  Auth::user();
+        return view('wlist.show',compact('user'),compact('wlist','id_list'));
 
     }
 
@@ -76,7 +80,8 @@ class UserProfileController extends Controller
     {
         //
         $userProfile = UserProfile::find($id_user_profile);
-        return view('user_profile.show',compact('userProfile','id_user_profile'));
+        $user =  Auth::user();
+        return view('user_profile.show',compact('user'),compact('userProfile','id_user_profile'));
 
     }
 

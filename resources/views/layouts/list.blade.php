@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     
-    <link href="{{ asset('css/loginstyle.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/list.css') }}" rel="stylesheet">
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
